@@ -1,4 +1,8 @@
-// ================= 0. 安全的 localStorage 封裝 (Try-Catch 保護) =================
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log('✅ SW 註冊成功:', reg.scope))
+      .catch(err => console.warn('❌ SW 註冊失敗:', err));
+  }
 const storage = {
   get(key) {
     try {
