@@ -1,0 +1,264 @@
+:root {
+  --bg-color: #001;
+  --text-color: #fff;
+  --muted-color: #666;
+  --accent-color: #0070f3;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* 頂部：Rift 圖標（已放大） */
+header {
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+header:hover {
+  opacity: 1;
+}
+.logo {
+  width: 64px;  /* 從 48px 放大至 64px */
+  height: 64px; /* 從 48px 放大至 64px */
+  display: block;
+}
+
+/* 中間左右布局面版 */
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-around;
+  align-items: center;
+  flex-grow: 1;
+}
+
+/* 左側：計時器與時鐘區 */
+main {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  flex: 1;
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.clock {
+  font-size: 6rem;
+  font-weight: 200;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.date {
+  font-size: 0.85rem;
+  color: var(--muted-color);
+  letter-spacing: 0.1em;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.pomodoro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.timer-display {
+  font-size: 3rem;
+  font-weight: 300;
+  color: #888888;
+  cursor: pointer;
+  transition: color 0.2s;
+  font-variant-numeric: tabular-nums;
+}
+.timer-display:hover {
+  color: var(--text-color);
+}
+.timer-display.running {
+  color: var(--text-color);
+}
+.timer-status {
+  font-size: 0.72rem;
+  color: var(--muted-color);
+  letter-spacing: 0.15em;
+}
+
+/* 右側：芫荽字體查字區 */
+.word-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid #111111;
+  height: 70%;
+  padding-left: 20px;
+  position: relative; /* 方便內部元件微調位置 */
+}
+
+/* 查字區上方的新增標題 */
+.word-title {
+  font-size: 2rem;
+  color: var(--muted-color);
+  letter-spacing: 0.2em;
+  margin-bottom: 35px; /* 與下方輸入框或大字的間距 */
+  font-weight: 500;
+  font-family: 'Iansui';
+}
+
+/* 輸入框樣式 */
+.word-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--muted-color);
+  color: var(--text-color);
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 10px;
+  width: 280px;
+  outline: none;
+  font-family: 'Iansui', sans-serif;
+  transition: border-color 0.3s;
+}
+.word-input:focus {
+  border-color: #888888;
+}
+.word-input::placeholder {
+  color: var(--muted-color);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+/* 放大顯示區樣式 */
+.word-display {
+  display: none;
+  font-family: 'Iansui', sans-serif;
+  font-size: 7.5rem;
+  line-height: 1.2;
+  color: var(--text-color);
+  cursor: pointer;
+  text-align: center;
+  max-width: 100%;
+  word-break: break-all;
+  animation: fadeIn 0.4s ease;
+}
+
+/* 查字區操作提示語 */
+.word-hint {
+  display: none;
+  font-size: 0.75rem;
+  color: var(--muted-color);
+  letter-spacing: 0.1em;
+  margin-top: 15px;
+  animation: fadeIn 0.4s ease;
+  opacity: 0.6;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* 底部控制 */
+footer {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.noise-btn {
+  background: transparent;
+  border: 1px solid var(--muted-color);
+  color: var(--muted-color);
+  padding: 10px 24px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+}
+.noise-btn:hover {
+  border-color: var(--text-color);
+  color: var(--text-color);
+}
+.noise-btn.playing {
+  border-color: var(--text-color);
+  color: var(--text-color);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* 音量控制區樣式 */
+.volume-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+.volume-container:hover {
+  opacity: 1;
+}
+.volume-icon {
+  font-size: 0.75rem;
+  color: var(--muted-color);
+  letter-spacing: 0.05em;
+}
+.volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 80px;
+  height: 2px;
+  background: #333;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.volume-slider:hover {
+  background: #555;
+}
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted-color);
+  transition: background 0.2s, transform 0.1s;
+}
+.volume-slider::-webkit-slider-thumb:hover {
+  background: var(--text-color);
+  transform: scale(1.2);
+}
+.volume-slider::-moz-range-thumb {
+  width: 8px;
+  height: 8px;
+  border: none;
+  border-radius: 50%;
+  background: var(--muted-color);
+  transition: background 0.2s, transform 0.1s;
+}
+.volume-slider::-moz-range-thumb:hover {
+  background: var(--text-color);
+  transform: scale(1.2);
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rift Tab</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Iansui&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+
+  <header>
+    <img class="logo" src="favicon.svg" alt="Rift Logo">
+  </header>
+
+  <div class="container">
+    <main>
+      <div class="clock-container">
+        <div class="clock" id="clock">00:00</div>
+        <div class="date" id="date">LOADING</div>
+      </div>
+
+      <div class="pomodoro-container">
+        <div class="timer-display" id="timer-display">25:00</div>
+        <div class="timer-status" id="timer-status">CLICK TO FOCUS</div>
+      </div>
+    </main>
+
+    <section class="word-section">
+      <div class="word-title">查字區域</div>
+      <input type="text" class="word-input" id="word-input" placeholder="輸入文字後按 Enter 換行 (最多4字)" maxlength="4" autocomplete="off">
+      <div class="word-display" id="word-display"></div>
+      <div class="word-hint" id="word-hint">點擊文字可重新編輯</div>
+    </section>
+  </div>
+
+  <footer>
+    <button class="noise-btn" id="btn-white">WHITE NOISE</button>
+    <div class="volume-container">
+      <span class="volume-icon">VOL</span>
+      <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.05" value="0.5">
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
