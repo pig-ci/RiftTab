@@ -1,9 +1,7 @@
 {
-  "manifest_version": 3,
   "name": "Rift Tab",
-  "short_name": "Rift Tab",
-  "version": "1.0",
-  "description": "極簡專注的新分頁計時與白噪音空間。",
+  "short_name": "Rift",
+  "description": "極簡專注的新分頁計時與白噪音空間",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#000000",
@@ -12,10 +10,8 @@
     {
       "src": "favicon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
-  ],
-  "chrome_url_overrides": {
-    "newtab": "index.html"
-  }
+  ]
 }
