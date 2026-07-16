@@ -1,10 +1,11 @@
-const CACHE_NAME = 'rift-tab-v1';
+const CACHE_NAME = 'rift-tab-v2';
 const ASSETS = [
   './',
   './index.html',
   './style.css',
   './script.js',
-  './favicon.svg'
+  './favicon.svg',
+  './Iansui.woff2'
 ];
 
 // 安裝 Service Worker 並快取檔案
