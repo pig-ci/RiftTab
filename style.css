@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Iansui';
+  src: url('Iansui.woff2') format('woff2');
+  font-display: swap;
+}
 :root {
   --bg-color: #001;
   --text-color: #fff;
@@ -261,4 +266,86 @@ footer {
 .volume-slider::-moz-range-thumb:hover {
   background: var(--text-color);
   transform: scale(1.2);
+}
+/* ================= 5. 手機版響應式設計 (RWD) ================= */
+@media (max-width: 468px) {
+  body {
+    padding: 20px; /* 縮減四周留白，釋放高度空間 */
+    justify-content: space-around; /* 讓頂部、中間與底部更均勻分布 */
+  }
+
+  header {
+    margin-bottom: 10px;
+  }
+
+  .logo {
+    width: 48px;  /* 手機上稍微縮小 Logo */
+    height: 48px;
+  }
+
+  /* 核心：將原本左右排列改為上下排列，並寬度滿版 */
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px; /* 控制上下兩個區塊的間距 */
+    width: 100%;
+    flex-grow: 1;
+    overflow: hidden; /* 確保內部元件不溢出 */
+  }
+
+  /* 左側：計時與時鐘區 */
+  main {
+    gap: 25px; /* 縮減時鐘與番茄鐘之間的間距 */
+    flex: none; /* 取消彈性伸縮，改由內容撐開 */
+  }
+
+  .clock {
+    font-size: 4rem; /* 縮小時間字體，防止撐寬螢幕 */
+  }
+
+  .timer-display {
+    font-size: 2.2rem; /* 稍微縮減番茄鐘數字大小 */
+  }
+
+  /* 右側：查字區 */
+  .word-section {
+    border-left: none; /* 移除原本的左邊框線 */
+    border-top: 1px solid #111111; /* 改為上邊框線，區隔兩個系統 */
+    padding-left: 0;
+    padding-top: 25px; /* 頂部留白 */
+    width: 100%;
+    height: auto;
+    flex: none;
+  }
+
+  .word-title {
+    font-size: 1.2rem; /* 縮小標題 */
+    margin-bottom: 15px; /* 縮減間距 */
+  }
+
+  .word-input {
+    font-size: 1.2rem;
+    width: 220px; /* 縮小輸入框寬度以符合手機螢幕 */
+  }
+
+  .word-display {
+    font-size: 4.5rem; /* 顯著縮小大字，避免 4 個字時溢出螢幕邊界 */
+    max-width: 95%;
+  }
+
+  .word-hint {
+    font-size: 0.7rem;
+    margin-top: 8px;
+  }
+
+  /* 底部控制區 */
+  footer {
+    gap: 15px; /* 縮短按鈕與音量控制的間距 */
+    margin-top: 10px;
+  }
+
+  .noise-btn {
+    padding: 8px 16px; /* 縮小按鈕 */
+    font-size: 0.75rem;
+  }
 }
