@@ -1,8 +1,8 @@
-const CACHE_NAME = 'rift-tab-v2';
+const CACHE_NAME = 'rift-tab-v3';
 const ASSETS = [
   './',
   './index.html',
-  './style.css',
+  './style.min.css',
   './script.js',
   './favicon.svg',
   './Iansui.woff2'
