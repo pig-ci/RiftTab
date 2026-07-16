@@ -1,9 +1,9 @@
-# Rift Tab · 極簡新標籤頁
+# Rift Tab · 極簡專注頁面
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Made with Vanilla JS](https://img.shields.io/badge/Made%20with-Vanilla%20JS-blue)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-> 一個乾淨、專注、帶有白噪音與番茄鐘的瀏覽器新標籤頁。
+> 一個乾淨、專注、帶有白噪音與番茄鐘的極簡專注頁面。
 
 ---
 
