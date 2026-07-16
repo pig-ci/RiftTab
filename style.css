@@ -268,7 +268,7 @@ footer {
   transform: scale(1.2);
 }
 /* ================= 5. 手機版響應式設計 (RWD) ================= */
-@media (max-width: 468px) {
+@media (max-width: 768px) {
   body {
     padding: 20px; /* 縮減四周留白，釋放高度空間 */
     justify-content: space-around; /* 讓頂部、中間與底部更均勻分布 */
